@@ -48,3 +48,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; Modes by file extension
+;; Enable yaml mode for file ending in .yml
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+
+;; Hooks
+;; Save file hooks
+;; Delete trailing whitespaces before saving file
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
