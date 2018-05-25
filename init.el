@@ -28,7 +28,11 @@
 ;; --------------------------------------
 
 (setq inhibit-startup-message t) ;; hide the startup message
+(setq x-select-enable-clipboard t) ;; Enable use of external clipboard
 (setq indent-tabs-mode nil) ;; disable tab indenting
+(setq visible-bell 1)
+(setq electric-pair-mode 1) ;; Turn on electric pair mode, for autopairing parens etc
+(setq create-lockfile nil) ;; Prevent emacs creating lockfiles
 (setq tab-width 4) ;; Set tab width to four cols
 (load-theme 'material t) ;; load material theme
 (global-linum-mode t) ;; enable line numbers globally
