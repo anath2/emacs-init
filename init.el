@@ -24,8 +24,9 @@
     haskell-mode
     dockerfile-mode
     cyberpunk-theme
+    zenburn-theme
+    monokai-theme
     neotree
-    real-auto-save
    )
 )
 
@@ -38,15 +39,15 @@
 ;; --------------------------------------
 (electric-pair-mode 1) ;; Pair braces and parens
 (set-frame-font "Hack 12" nil t) ;; Set 'Hack' as the default font
-(setq-default line-spacing 9)
 (setq inhibit-startup-message t) ;; hide the startup message
-(setq select-enable-clipeboard t) ;; Enable use of external clipboard
+(setq select-enable-clipboard t) ;; Enable use of external clipboard
 (setq visible-bell 1) ;; Disable bell
-(setq real-auto-save-interval 5) ;; Save all files after 5 seconds
 (setq create-lockfiles nil) ;; Prevent emacs creating lockfiles
 (setq global-auto-revert-mode t) ;; Refresh buffers automatically when files are changed on the buffer
 (setq tab-width 4) ;; Set tab width to four cols
-(load-theme 'cyberpunk t) ;; load cyber punk theme
+
+(load-theme 'monokai t) ;; load monokai punk theme
+
 (global-linum-mode t) ;; enable line numbers globally
 (setq make-backup-files nil) ;; Do not make backup files
 (setq auto-save-default nil)
@@ -64,7 +65,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (web-mode dockerfile-mode elpygen elpy material-theme better-defaults))))
+	(monokai-theme web-mode dockerfile-mode elpygen elpy material-theme better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -99,5 +100,4 @@
 
 ;; Delete trailing whitespaces before saving file
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-(add-hook 'prog-mode-hook 'real-auto-save-mode)
 (global-set-key [f8] 'neotree-toggle)
