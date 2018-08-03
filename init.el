@@ -14,7 +14,6 @@
 
 (defvar myPackages
   '(better-defaults
-    elpy
     projectile
     flycheck
     web-mode
@@ -52,7 +51,8 @@
 (setq make-backup-files nil) ;; Do not make backup files
 (setq auto-save-default nil)
 
-(elpy-enable)
+(company-enable)
+(projectile-enable)
 
 (when (executable-find "ipython")
   (setq python-shell-interpreter "ipython"
@@ -65,7 +65,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-	(monokai-theme web-mode dockerfile-mode elpygen elpy material-theme better-defaults))))
+	(monokai-theme web-mode dockerfile-mode material-theme better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -101,3 +101,5 @@
 ;; Delete trailing whitespaces before saving file
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (global-set-key [f8] 'neotree-toggle)
+(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'after-init-hook 'projectile-global-mode)
