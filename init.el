@@ -9,6 +9,11 @@
 
 ;;; Code:
 
+;; Set command key as option on mac
+(when (eq system-type 'darwin)
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier nil))
+
 (setq default-major-mode 'text-mode)
 (add-hook 'text-mode-hook 'text-mode-hook-identify)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
