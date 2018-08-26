@@ -10,6 +10,18 @@
 ;;; Code:
 
 ;; Set command key as option on mac
+
+;; Disabling menus
+
+(tool-bar-mode -1)
+(toggle-scroll-bar -1)
+(menu-bar-mode -1)
+
+;; Setting fonts
+
+(set-frame-font "hack-11")
+
+
 (when (eq system-type 'darwin)
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier nil))
@@ -79,7 +91,7 @@
 
 ;; Setup theme and global fonts
 (require 'monokai-theme)
-(load-theme 'monokai t)
+(Load-theme 'monokai t)
 (set-frame-font "Hack 11" nil t)
 
 ;; Flycheck mode
