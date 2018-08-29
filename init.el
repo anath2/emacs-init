@@ -76,13 +76,13 @@
 
 ;; Setup projectile
 (require 'projectile)
+(define-key projectile-mode-map (kbd "C-h C-v") #'projectile-command-map)
 (setq projectile-enable-caching t) ;; Cache open files in projectile
-(setq projectile-indexing-method 'alien) ;; Set projectile indexing method
-(setq projectile-keymap-prefix "\C-c\C-p") ;; Setup projectile keymap
+(setq projectile-indexing-method 'native) ;; Set projectile indexing method
 (add-hook 'after-init-hook 'projectile-mode)
 
 ;; Eshell
-(global-set-key "\C-c~" 'eshell)
+(global-set-key (kbd "C-c s") 'eshell)
 
 ;; Magit setup
 (require 'magit)
@@ -91,7 +91,7 @@
 
 ;; Setup theme and global fonts
 (require 'monokai-theme)
-(Load-theme 'monokai t)
+(load-theme 'monokai t)
 (set-frame-font "Hack 11" nil t)
 
 ;; Flycheck mode
@@ -104,10 +104,9 @@
 ;; Setup company mode
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
-(define-key company-mode-map "\M-/" 'company-complete)
-(define-key company-active-map "\M-/" 'company-other-backend)
-(define-key company-active-map "\C-p" 'company-select-previous)
-(define-key company-active-map "\C-n" 'company-select-next)
+(define-key company-mode-map (kbd "M-/") #'company-complete)
+(define-key company-active-map (kbd "C-p") #'company-select-previous)
+(define-key company-active-map (kbd "C-n") #'company-select-next)
 (setq-default company-dabbrev-other-buffers 'all
 	      company-tooltip-align-annotations t)
 
@@ -121,7 +120,8 @@
 
 (require 'company-anaconda)
 (add-hook 'python-mode-hook 'company-anaconda)
-
+(eval-after-load "company"
+ '(add-to-list 'company-backends 'company-anaconda))
 
 ;;Setup pyvevn
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/pyvenv"))
